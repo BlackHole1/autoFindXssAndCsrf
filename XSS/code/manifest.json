@@ -1,0 +1,21 @@
+{
+  "name": "AutoFindXSS",
+  "version": "4.0.0",
+  "manifest_version": 2,
+  "description": "自动化检测XSS漏洞/Automated detection of XSS vulnerabilities[by:Black-Hole&root@freeattack.com]",  
+  "content_scripts": [{
+    "matches": [
+      "http://*/*",
+      "https://*/*"
+    ],
+  	"js": [
+      "jquery.js",
+      "base.js"
+    ],
+    "run_at": "document_end"
+  }],
+  "permissions": [     
+    "tabs", "http://*/*","https://*/*"
+  ],
+  "icons":{"16": "icons/icon_16.png","48": "icons/icon_48.png","128": "icons/icon_128.png"}
+}

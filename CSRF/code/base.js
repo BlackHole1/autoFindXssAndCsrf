@@ -36,26 +36,23 @@ for(var i = 0;i < $("form").length;i++){
 		continue outerFor;
 	}
 	//去除具有token的form表单
-	for(var j = 0;j < formDom.find(":hidden").length;j++){
-		var tokenInputCheck = formDom.find(":hidden").eq(j)val();
-		$.ajax({
-			url: location.href,
-			type: 'default GET (Other values: POST)',
-			dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-			data: {param1: 'value1'},
-		})
-		.done(function() {
-			console.log("success");
-		})
-		.fail(function() {
-			console.log("error");
-		})
-		.always(function() {
-			console.log("complete");
-		});
-		
-		if(formDom.find(":hidden").eq(j).val().length > 10){
-			continue outerFor;
+	var iframe = document.createElement('iframe');
+	$("html").append("<iframe id='tokenCheck' src='about:blank' style='display:none;'></iframe>");
+	$.ajax({
+		url: location.href,
+		type: 'get',
+		dataType: 'html',
+		async:false,
+	})
+	.done(function(data){
+		$("#tokenCheck").contents().find("body").html($(data).find("form"));
+	})
+	if(formDom.find(":hidden").length > 0){
+    	for(var j = 0;j < formDom.find(":hidden").length;j++){
+			var tokenInputValue = formDom.find(":hidden").eq(j).val();
+			if($($("#tokenCheck").contents()['context']['forms'][i]).find(":hidden").eq(j).val() != tokenInputValue){
+				continue outerFor;
+			}
 		}
 	}
 	//去除带有验证码的form表单

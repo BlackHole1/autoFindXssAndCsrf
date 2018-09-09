@@ -1,0 +1,52 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "env": {
+    "es6": true
+  },
+  "plugins": [
+    "flowtype"
+  ],
+  "extends": [
+    "plugin:flowtype/recommended",
+    "eslint:recommended"
+  ],
+  "rules": {
+    "quotes": [2, "single"],
+    "semi": [2, "never"],
+    "no-console": 1,
+    "no-debugger": 1,
+    "curly": 1,
+    "default-case": 2,
+    "eqeqeq": 2,
+    "no-prototype-builtins": 2,
+    "guard-for-in": 2,
+    "no-eval": 2,
+    "no-return-assign": 2,
+    "no-with": 2,
+    "eol-last": [2, "always"],
+    "lines-around-comment": [2, {
+      "beforeBlockComment": true
+    }],
+    "array-bracket-spacing": [2, "always"],
+    "brace-style": 2,
+    "keyword-spacing": [2, {
+      "before": true,
+      "after": true
+    }],
+    "no-var": 2,
+    "prefer-arrow-callback": 2
+  },
+  "globals": {
+    "console": false,
+    "chrome": false
+  },
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
+  }
+}

@@ -10,7 +10,7 @@ class findXss {
 
   constructor () {
     this.identifier = identifier
-    this.requestList = []
+    this.requestList = {}
     this.hookRequest()
   }
 

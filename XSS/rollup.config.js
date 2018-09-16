@@ -23,7 +23,11 @@ const plugins = [
     browser: true
   }),
   flow(),
-  buble(),
+  buble({
+    transforms: {
+      dangerousForOf: true
+    }
+  }),
   node(),
   cjs(),
   (env === 'production' && uglify())

@@ -42,7 +42,9 @@
   },
   "globals": {
     "console": false,
-    "chrome": false
+    "chrome": false,
+    "location": false,
+    "URL": false
   },
   "settings": {
     "flowtype": {

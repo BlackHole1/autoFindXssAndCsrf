@@ -70,3 +70,58 @@ export const detectionDataUniqueness$ = (self, request) => {
     return true
   }
 }
+
+export class getUrlInfo$ {
+  getInfo (urlAddress) {
+    return new URL(urlAddress)
+  }
+
+  parseSearch (urlAddress) {
+    if (urlAddress === null || typeof urlAddress !== 'string') {
+      return false
+    }
+
+    let url = {}, search = '', params = [], paramsObj = {}
+    try {
+      url = new URL(urlAddress)
+    } catch (e) {
+      return false
+    }
+
+    search = url.search
+    if (search === '' || search[0] !== '?') {
+      return false
+    }
+
+    params = search.slice(1).split('&')
+
+    
+    for (let i = 0; i < params.length; i++) {
+      const paramsArr = params[i].split('=')
+      paramsObj[paramsArr[0]] = paramsArr[1]
+    }
+
+    return paramsObj
+  }
+
+  stringifySearch (paramsObj, href) {
+    if (paramsObj === null || typeof paramsObj !== 'object') {
+      return false
+    }
+
+    let params = []
+    for (let key in paramsObj) {
+      if ({}.hasOwnProperty.call(paramsObj, key)) {
+        params.push(`${key}=${paramsObj[key]}`)
+      }
+    }
+
+    if (href !== undefined) {
+      let url = href.split('?')[0]
+      return `${url}?${params.join('&')}`
+    } else {
+      return `${params.join('&')}`
+    }
+
+  }
+}

@@ -1,7 +1,7 @@
 import v1 from 'uuid/v1'
 
 // @flow
-export const identifier: string = v1()
+export const identifier: string = v1().toString().split('-')[0]
 
 // Supported request types
 // 支持的请求类型

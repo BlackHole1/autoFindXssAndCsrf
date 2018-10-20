@@ -1,0 +1,1 @@
+Current project is being developed. If you want to use the full project, you can go there: https://github.com/BlackHole1/autoFindXssAndCsrf/tree/7d9fec38910ee360378bdc8843977347f5e414da
